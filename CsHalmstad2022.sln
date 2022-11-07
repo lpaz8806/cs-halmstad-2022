@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01_UML", "L01_UML\L01_UML.csproj", "{4537FB96-473A-4E5B-B405-D4B194B4F0F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02_RepetitionUML", "L02_RepetitionUML\L02_RepetitionUML.csproj", "{BE3DDD75-2260-40FE-8326-26BF904692F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4537FB96-473A-4E5B-B405-D4B194B4F0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4537FB96-473A-4E5B-B405-D4B194B4F0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4537FB96-473A-4E5B-B405-D4B194B4F0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4537FB96-473A-4E5B-B405-D4B194B4F0F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3DDD75-2260-40FE-8326-26BF904692F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3DDD75-2260-40FE-8326-26BF904692F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3DDD75-2260-40FE-8326-26BF904692F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3DDD75-2260-40FE-8326-26BF904692F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
