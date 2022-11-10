@@ -19,6 +19,8 @@ public class Rational
 
     public Rational Multiply(Rational other)
     {
+        var printer = new Printer();
+        
         return new Rational(
             _numerator * other._numerator,
             _denominator * other._denominator

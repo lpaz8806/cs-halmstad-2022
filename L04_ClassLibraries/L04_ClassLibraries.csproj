@@ -8,9 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="CoolMath">
-        <HintPath>..\..\..\Desktop\CoolMath.dll</HintPath>
-      </Reference>
+      <ProjectReference Include="..\CoolMath\CoolMath.csproj" />
     </ItemGroup>
 
 </Project>
