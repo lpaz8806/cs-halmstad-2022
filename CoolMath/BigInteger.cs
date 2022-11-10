@@ -21,5 +21,11 @@ public class BigInteger
         return new BigInteger(r);
     }
     
+    public BigInteger Sub(BigInteger other)
+    {
+        var r = uint.Parse(_number) - uint.Parse(other._number);
+        return new BigInteger(r);
+    }
+    
     public override string ToString() => _number;
 }
