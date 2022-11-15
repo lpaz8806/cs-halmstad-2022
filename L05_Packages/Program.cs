@@ -3,25 +3,17 @@
 // Packages
 // Koppla till Databas
 
-using System.Threading.Channels;
 using L05_Packages;
 using MySqlConnector;
 
-var server = "localhost";
-var username = "pepe";
-var password = "pepe";
-var db = "carsales_db";
+class Program
+{
+    static void Main(string[] args)
+    {
+        var connectionString = File.ReadAllLines("config.txt")[0];
+        using var connection = new MySqlConnection(connectionString);
 
-var connectionString =
-    $"SERVER={server};DATABASE={db};UID={username};PASSWORD={password}";
-
-using var connection = new MySqlConnection(connectionString);
-
-var repo = new MySqlRepository(connection);
-var customer = repo.GetCustomerById(3);
-
-Console.WriteLine(customer);
-customer.FirstName = "Foo";
-repo.Save(customer);
-
-// Console.WriteLine(repo.GetCustomerById(4));
+        // your app goes here
+        
+    }
+}
