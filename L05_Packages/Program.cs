@@ -18,13 +18,10 @@ var connectionString =
 using var connection = new MySqlConnection(connectionString);
 
 var repo = new MySqlRepository(connection);
-
-// Console.WriteLine(string.Join('\n', repo.GetAllCustomers()));
-
-var customer = repo.GetCustomerById(4);
+var customer = repo.GetCustomerById(3);
 
 Console.WriteLine(customer);
-customer.FirstName = "'; DROP TABLE secret; -- ";
+customer.FirstName = "Foo";
 repo.Save(customer);
 
 // Console.WriteLine(repo.GetCustomerById(4));

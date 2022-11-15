@@ -36,9 +36,11 @@ public class MySqlRepository : IRepository
     public Customer? GetCustomerById(int id)
     {
         _conn.Open();
-        var query = $"SELECT * FROM customer WHERE customer_id = {id}";
+        var query = "SELECT * FROM customer WHERE customer_id = @id";
         var command = new MySqlCommand(query, _conn);
-
+        command.Parameters.AddWithValue(
+            "@id", id);
+        
         var reader = command.ExecuteReader();
         var customer = !reader.Read()
             ? null
@@ -67,9 +69,15 @@ public class MySqlRepository : IRepository
         _conn.Open();
         var query =
             "INSERT INTO customer(customer_firstname, customer_lastname,customer_telephone)" +
-            $"VALUES('{c.FirstName}', '{c.LastName}', '{c.Phone}')";
+            "VALUES(@first_name, @last_name, @phone)";
         
         var command = new MySqlCommand(query, _conn);
+        command.Parameters.AddWithValue(
+            "@first_name", c.FirstName);
+        command.Parameters.AddWithValue(
+            "@last_name", c.LastName);
+        command.Parameters.AddWithValue(
+            "@phone", c.Phone);
         command.ExecuteNonQuery();
         _conn.Close();
     }
@@ -78,14 +86,21 @@ public class MySqlRepository : IRepository
         _conn.Open();
         var query =
             "UPDATE customer SET " +
-            $"customer_firstname = '{c.FirstName}'," +
-            $"customer_lastname = '{c.LastName}'," +
-            $"customer_telephone = '{c.Phone}' " +
-            $"WHERE customer_id = {c.Id}";
+            "customer_firstname = @first_name," +
+            "customer_lastname = @last_name," +
+            "customer_telephone = @phone " +
+            "WHERE customer_id = @id";
         
         var command = new MySqlCommand(query, _conn);
+        command.Parameters.AddWithValue(
+            "@first_name", c.FirstName);
+        command.Parameters.AddWithValue(
+            "@last_name", c.LastName);
+        command.Parameters.AddWithValue(
+            "@phone", c.Phone);
+        command.Parameters.AddWithValue(
+            "@id", c.Id);
         
         command.ExecuteNonQuery();
-        
     }
 }
