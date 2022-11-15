@@ -16,31 +16,15 @@ var connectionString =
     $"SERVER={server};DATABASE={db};UID={username};PASSWORD={password}";
 
 using var connection = new MySqlConnection(connectionString);
-connection.Open();
 
-var query = "SELECT * FROM customer";
-var command = new MySqlCommand(query, connection);
+var repo = new MySqlRepository(connection);
 
-var reader = command.ExecuteReader();
-string[] columns =
-{
-    "customer_id",
-    "customer_firstname",
-    "customer_lastname",
-    "customer_telephone"
-};
+// Console.WriteLine(string.Join('\n', repo.GetAllCustomers()));
 
-List<Customer> customers = new();
-while (reader.Read())
-{
-    customers.Add(new Customer()
-    {
-        Id = reader.GetInt32("customer_id"),
-        FirstName = reader.GetString("customer_firstname"),
-        LastName = reader.GetString("customer_lastname"),
-        Phone = reader.GetInt32("customer_telephone").ToString(),
-    });
-}
+var customer = repo.GetCustomerById(4);
 
-foreach(var customer in customers)
-    Console.WriteLine(customer);
+Console.WriteLine(customer);
+customer.FirstName = "'; DROP TABLE secret; -- ";
+repo.Save(customer);
+
+// Console.WriteLine(repo.GetCustomerById(4));
