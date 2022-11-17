@@ -102,5 +102,6 @@ public class MySqlRepository : IRepository
             "@id", c.Id);
         
         command.ExecuteNonQuery();
+        _conn.Close();
     }
 }
