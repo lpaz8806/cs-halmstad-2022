@@ -8,8 +8,4 @@
         <RootNamespace>Events</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Exercises" />
-    </ItemGroup>
-
 </Project>
